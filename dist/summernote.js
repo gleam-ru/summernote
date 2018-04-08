@@ -8,9 +8,9 @@
  * Date: 2018-02-20T00:34Z
  */
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery')) :
-	typeof define === 'function' && define.amd ? define(['jquery'], factory) :
-	(factory(global.jQuery));
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery')) :
+    typeof define === 'function' && define.amd ? define(['jquery'], factory) :
+    (factory(global.jQuery));
 }(this, (function ($$1) { 'use strict';
 
 $$1 = $$1 && $$1.hasOwnProperty('default') ? $$1['default'] : $$1;
@@ -4084,7 +4084,9 @@ var Editor = /** @class */ (function () {
      * @return {WrappedRange}
      */
     Editor.prototype.createRange = function () {
-        this.focus();
+        // due to known focus-loss bug:
+        // https://github.com/summernote/summernote/issues/1520
+        // this.focus();
         return range.create(this.editable);
     };
     /**
